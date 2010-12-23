@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Главная :: Сайт Самиляк Татьяны</title>
+<link rel="stylesheet" href="styles/main.css">
+<script src="lib/jquery.pack.js"></script>
+<script src="lib/jquery.pngFix.pack.js"></script>
+<script>
+	function getURLParam(strParamName){
+	  var strReturn = "";
+	  var strHref = window.location.href;
+	  if ( strHref.indexOf("?") > -1 ){
+	    var strQueryString = strHref.substr(strHref.indexOf("?")).toLowerCase();
+	    var aQueryString = strQueryString.split("&");
+	    for ( var iParam = 0; iParam < aQueryString.length; iParam++ ){
+	      if (
+			aQueryString[iParam].indexOf(strParamName.toLowerCase() + "=") > -1 ){
+	        var aParam = aQueryString[iParam].split("=");
+	        strReturn = aParam[1];
+	        break;
+	      }
+	    }
+	  }
+	  return unescape(strReturn);
+	}
+	jQuery(document).ready( function() {
+		jQuery(document).pngFix();
+		if (getURLParam('mailsent') == 'true') {
+			jQuery("#message").html("Спасибо, Ваше сообщение было отправлено <br/> Я постараюсь Вам ответить как можно быстрее. ");
+		}
+	});
+
+</script>
+</head>
+<body>
+<div id="main">
+
+<div id="centerwrapper">
+<div id="message"></div>
+
+<div id="header">
+	<a href="#"><img src="images/static/name.png"/></a>
+</div>
+<table id="centraltable">
+	<tr>
+		<td>
+		<div id="hires_aboutme"><a href="aboutme.html"><img
+			id="aboutme" src="images/static/aboutme_center.jpg" /></a></div>
+		<a href="hobbies.html"><img class="buttons" src="images/static/hobby.gif" /></a>
+			<img class="grids" src="images/static/calendar_grid.png" /></td>
+		<td>
+		<div id="hires_portfolio"><a href="portfolio.html"><img
+			id="portfolio" src="images/static/portfolio_center.jpg" /></a></div>
+		<img class="buttons" src="images/static/calendars.gif" /> <img
+			class="grids" src="images/static/calendar_grid.png" /></td>
+		<td>
+		<div id="hires_contacts"><a href="contacts.html"><img
+			id="contacts" src="images/static/contacts_center.jpg" /></a> <img
+			class="buttons" id="button_links" src="images/static/links.gif" /></div>
+		</td>
+	</tr>
+</table>
+</div>
+</div>
+</body>
+</html>
